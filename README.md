@@ -37,6 +37,10 @@ Stop vm
 ```sh
 vagrant halt   
 ```
+Restart vm
+```sh
+vagrant reload   
+```
 Access vm
 ```sh
 vagrant ssh   
@@ -44,4 +48,8 @@ vagrant ssh
 Logout from vm
 ```sh
 crtl+d 
+```
+Check disk size
+```sh
+lsblk
 ```

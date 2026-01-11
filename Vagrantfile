@@ -74,4 +74,8 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  # Mount disk
+  config.vm.disk :disk, name: "backup", size: "5GB"
+  # config.vm.disk :floppy, name: "cool_files"
 end
