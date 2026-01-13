@@ -13,11 +13,11 @@ Check if install
 ```sh
 vagrant --help
 ```
-Add box(vm), _**can't use ubuntu/jammy64 due to it's suitable for Intel/AMD not M-series chip**_
+Add box(image/OS), _**can't use ubuntu/jammy64 due to it's suitable for Intel/AMD not M-series chip**_
 ```sh
 vagrant init bento/ubuntu-22.04
 ```
-Run box
+Run vm
 ```sh
 vagrant up
 ```
@@ -49,7 +49,24 @@ Logout from vm
 ```sh
 crtl+d 
 ```
+
+
+### 1. Mount disk
+Set in Vagrantfile, for example
+```vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.disk :disk, name: "backup", size: "5GB"
+  config.vm.disk :floppy, name: "cool_files"
+end
+```
+_PS. found issue can't add floppy type_
+
+After config, use command
+```sh
+vagrant up
+```
 Check disk size
 ```sh
 lsblk
 ```
+Note: Can't shrink size directly, need to remove before set new disk size
