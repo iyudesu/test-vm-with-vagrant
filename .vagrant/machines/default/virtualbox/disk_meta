@@ -1,1 +1,1 @@
-{"disk":[{"uuid":"e6e77130-c6f3-4f20-b542-717fe67ab6bf","name":"backup","controller":"VirtIO Controller","port":"1","device":"0"}],"floppy":[],"dvd":[]}
+{"disk":[{"uuid":"7d3d1a0b-5ca0-428d-a1fb-39a2103e8a67","port":"1","device":"0","name":"backup","controller":"VirtIO Controller"}],"floppy":[],"dvd":[]}

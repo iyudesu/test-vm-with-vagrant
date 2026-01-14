@@ -25,6 +25,10 @@ Check box
 ```sh
 vagrant box list       
 ```
+Remove box
+```sh
+vagrant box remove <box-name>      
+```
 Check status
 ```sh
 vagrant status      
@@ -36,6 +40,10 @@ vagrant global-status
 Stop vm
 ```sh
 vagrant halt   
+```
+Remove vm
+```sh
+vagrant destroy  
 ```
 Restart vm
 ```sh
@@ -70,3 +78,32 @@ Check disk size
 lsblk
 ```
 Note: Can't shrink size directly, need to remove before set new disk size
+
+### 2. Set network
+**2.1 Basic set**
+
+Craete directory, index.html file in it and bash script follow [ref](https://developer.hashicorp.com/vagrant/tutorials/networking-provisioning-operations/getting-started-provisioning)
+  
+Set in Vagrantfile, for example
+```vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-22.04"
+  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.network "forwarded_port", guest: 80, host: 4567
+end
+```
+After config, use command
+```sh
+vagrant up
+```
+And check web browser to see if it expose to forwarded port (localhost:4567)
+
+Check running vm, use command
+```sh
+vagrant ssh
+```
+and 
+```sh
+wget -qO- 127.0.0.1
+```
+to see result
